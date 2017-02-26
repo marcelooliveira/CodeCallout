@@ -8,7 +8,7 @@
         WindowStyle="None"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525"
-        Background="#40c0c0ff"
+        Background="#10c0c0ff"
         WindowState="Maximized">
     <Grid>
         <Grid.RowDefinitions>
@@ -19,9 +19,16 @@
         </Grid.RowDefinitions>
         <Image x:Name="img" Grid.Row="0" Stretch="None">
             <Image.Effect>
-                <DropShadowEffect ShadowDepth="20" Color="Teal" Opacity=".3" RenderingBias="Performance" />
+                <DropShadowEffect ShadowDepth="20" Color="Teal" Opacity=".3" RenderingBias="Quality" />
             </Image.Effect>
         </Image>
+        <InkCanvas Margin="10,10,10,10" Width="Auto" Height="Auto" Background="Transparent" x:Name="inkCanv">
+            <InkCanvas.DefaultDrawingAttributes>
+                <DrawingAttributes Color="Red" FitToCurve="True" IgnorePressure="True" StylusTip="Ellipse">
+                    
+                </DrawingAttributes>
+            </InkCanvas.DefaultDrawingAttributes>
+        </InkCanvas>
         <TextBox x:Name="txt" Grid.Row="2" FontSize="64" HorizontalAlignment="Center" TextChanged="txt_TextChanged" Visibility="Hidden">
             <TextBox.Effect>
                 <DropShadowEffect ShadowDepth="5" Color="BurlyWood" Opacity=".4" RenderingBias="Performance" />

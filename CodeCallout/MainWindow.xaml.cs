@@ -31,6 +31,15 @@ namespace CodeCallout
             timer = new DispatcherTimer();
             SetupTimer();
             SetupToggleButtons();
+            this.Activated += MainWindow_Activated;
+        }
+
+        private void MainWindow_Activated(object sender, EventArgs e)
+        {
+            if (Clipboard.ContainsText())
+            {
+                txt.Text = Clipboard.GetText();
+            }
         }
 
         private void SetupToggleButtons()
@@ -104,5 +113,7 @@ namespace CodeCallout
             timer.Stop();
             timer.Start();
         }
+
+        
     }
 }
