@@ -14,6 +14,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="96"></RowDefinition>
+            <RowDefinition Height="96"></RowDefinition>
             <RowDefinition Height="32"></RowDefinition>
         </Grid.RowDefinitions>
         <Image x:Name="img" Grid.Row="0" Stretch="None">
@@ -21,12 +22,13 @@
                 <DropShadowEffect ShadowDepth="20" Color="Teal" Opacity=".3" RenderingBias="Performance" />
             </Image.Effect>
         </Image>
-        <TextBox x:Name="txt" Grid.Row="1" FontSize="64" HorizontalAlignment="Center" TextChanged="txt_TextChanged">
+        <TextBox x:Name="txt" Grid.Row="2" FontSize="64" HorizontalAlignment="Center" TextChanged="txt_TextChanged" Visibility="Hidden">
             <TextBox.Effect>
                 <DropShadowEffect ShadowDepth="5" Color="BurlyWood" Opacity=".4" RenderingBias="Performance" />
             </TextBox.Effect>
         </TextBox>
-        <StackPanel>
-        </StackPanel>
+        <WrapPanel x:Name="pnlButtons" Grid.Row ="1" Orientation="Horizontal" HorizontalAlignment="Center"
+                   MaxWidth="800">
+        </WrapPanel>
     </Grid>
 </Window>

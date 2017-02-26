@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -26,7 +29,56 @@ namespace CodeCallout
         {
             InitializeComponent();
             timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromMilliseconds(500);
+            SetupTimer();
+            SetupToggleButtons();
+        }
+
+        private void SetupToggleButtons()
+        {
+            string exeLocation = new Uri(Assembly.GetExecutingAssembly().CodeBase).AbsolutePath;
+            string localFolder = System.IO.Path.GetDirectoryName(exeLocation);
+            string imageFolder = System.IO.Path.Combine(localFolder, "Images");
+            string[] files = Directory.GetFiles(imageFolder);
+            foreach (var file in files)
+            {
+                var fileName = System.IO.Path.GetFileName(file);
+                var toggleButton = new ToggleButton
+                {
+                    Content = fileName.Replace(".png", ""),
+                    Margin = new Thickness(8, 0, 8, 0)
+                };
+
+                toggleButton.Click += ToggleButton_Click;
+                pnlButtons.Children.Add(toggleButton);
+            }
+        }
+
+        private void ToggleButton_Click(object sender, RoutedEventArgs e)
+        {
+            ToggleButton toggleButton = (sender as ToggleButton);
+            if (toggleButton != null)
+            {
+                int childAmount = VisualTreeHelper.GetChildrenCount(toggleButton.Parent);
+
+                ToggleButton tb;
+                for (int i = 0; i < childAmount; i++)
+                {
+                    tb = null;
+                    tb = VisualTreeHelper.GetChild(toggleButton.Parent, i) as ToggleButton;
+
+                    if (tb != null)
+                        tb.IsChecked = false;
+                }
+
+                toggleButton.IsChecked = true;
+
+                txt.Text = toggleButton.Content.ToString();
+            }
+        }
+
+        private void SetupTimer()
+        {
+            timer.Interval = TimeSpan.FromMilliseconds(0);
             timer.Tick += Timer_Tick;
         }
 
