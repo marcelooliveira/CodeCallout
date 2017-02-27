@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -16,6 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using Tesseract;
 
 namespace CodeCallout
 {
@@ -25,13 +27,127 @@ namespace CodeCallout
     public partial class MainWindow : Window
     {
         readonly DispatcherTimer timer;
+        //System.Windows.Rect rectScreenshot = new System.Windows.Rect(0, 0, 10, 10);
         public MainWindow()
         {
             InitializeComponent();
             timer = new DispatcherTimer();
             SetupTimer();
             SetupToggleButtons();
+
             this.Activated += MainWindow_Activated;
+            this.Loaded += MainWindow_Loaded;
+            inkCanv.MouseUp += InkCanv_MouseUp;
+            inkCanv.MouseMove += InkCanv_MouseMove;
+
+            this.gridTop.MouseDown += GridTop_MouseDown;
+            this.gridTop.MouseMove += GridTop_MouseMove;
+            this.gridTop.MouseUp += GridTop_MouseUp;
+        }
+
+        private void GridTop_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            var rect = new System.Windows.Rect(
+                rectSelection.Margin.Left - rectSelection.StrokeThickness * 2,
+                rectSelection.Margin.Top - rectSelection.StrokeThickness * 2,
+                rectSelection.Width - rectSelection.StrokeThickness * 2 - 1,
+                rectSelection.Height - rectSelection.StrokeThickness * 2 - 1);
+
+            var bitmap = CaptureScreenshot.Capture(rect);
+            var text = ProcessOCR(bitmap);
+            txt.Text = text;
+            //rectScreenshot = new System.Windows.Rect(0, 0, 10, 10);
+            rectSelection.Margin = new Thickness(0);
+            rectSelection.Width = 10;
+            rectSelection.Height = 10;
+        }
+
+        private void GridTop_MouseMove(object sender, MouseEventArgs e)
+        {
+            bool mouseIsDown = System.Windows.Input.Mouse.LeftButton == MouseButtonState.Pressed;
+            if (mouseIsDown)
+            {
+                var pos = Mouse.GetPosition(this);
+                rectSelection.Width = Math.Max(0, pos.X - rectSelection.Margin.Left);
+                rectSelection.Height = Math.Max(0, pos.Y - rectSelection.Margin.Top);
+            }
+            //throw new NotImplementedException();
+        }
+
+        private void GridTop_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            var pos = Mouse.GetPosition(this);
+            inkCanv.Strokes.Clear();
+            rectSelection.Margin = new Thickness(pos.X, pos.Y, 0, 0);
+        }
+
+        private void InkCanv_MouseMove(object sender, MouseEventArgs e)
+        {
+            //rectSelection.Margin = new Thickness(rectScreenshot.X, rectScreenshot.Y, 0, 0);
+            //rectSelection.Width = 50;
+            //rectSelection.Height = 50;
+        }
+
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            //inkCanv.AddHandler(InkCanvas.MouseDownEvent, new MouseButtonEventHandler(InkCanvas_MouseDown), true);
+        }
+
+        private void InkCanv_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            //var pos = Mouse.GetPosition(this);
+            //rectScreenshot = new System.Windows.Rect(
+            //    rectScreenshot.X, 
+            //    rectScreenshot.Y
+            //    , pos.X - rectScreenshot.X
+            //    , pos.Y - rectScreenshot.Y);
+            //var bitmapSource = CaptureScreenshot.Capture(rectScreenshot);
+            //ProcessOCR(bitmapSource);
+        }
+
+        private static byte[] GetByteArray(BitmapSource bitmapSource)
+        {
+            byte[] byteArray;
+            JpegBitmapEncoder encoder = new JpegBitmapEncoder();
+            encoder.QualityLevel = 100;
+            using (MemoryStream stream = new MemoryStream())
+            {
+                encoder.Frames.Add(BitmapFrame.Create(bitmapSource));
+                encoder.Save(stream);
+                byteArray = stream.ToArray();
+                stream.Close();
+            }
+
+            return byteArray;
+        }
+
+        private static string ProcessOCR(Bitmap bitmap)
+        {
+            var text = "";
+            var demoFilename = String.Format(@"C:\Users\marce\Desktop\OCR.png");
+            bitmap.Save(demoFilename);
+            //SaveBitmapSourceToFile(bitmap, demoFilename);
+            using (var engine = new TesseractEngine(@"./tessdata", "eng", EngineMode.Default))
+            {
+                using (var pix = Pix.LoadFromFile(demoFilename))
+                {
+                    using (var page = engine.Process(pix))
+                    {
+                        text = page.GetText().Trim();
+                    }
+                }
+            }
+            return text;
+        }
+
+        public static void SaveBitmapSourceToFile(BitmapSource bitmapSource, string filePath)
+        {
+            using (var fileStream = new FileStream(filePath, FileMode.Create))
+            {
+                BitmapEncoder encoder = new PngBitmapEncoder();
+                encoder.Frames.Add(BitmapFrame.Create(bitmapSource));
+                encoder.Save(fileStream);
+            }
         }
 
         private void MainWindow_Activated(object sender, EventArgs e)
