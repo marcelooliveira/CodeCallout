@@ -245,6 +245,10 @@ namespace CodeCallout
             timer.Start();
         }
 
-        
+        private void btnPen_Click(object sender, RoutedEventArgs e)
+        {
+            gridTop.Visibility = 
+                (btnPen.IsChecked.HasValue && (bool)btnPen.IsChecked ? Visibility.Hidden : Visibility.Visible);
+        }
     }
 }

@@ -24,7 +24,8 @@
         </Image>
         <InkCanvas Margin="10,10,10,10" Width="Auto" Height="Auto" Background="Transparent" x:Name="inkCanv">
             <InkCanvas.DefaultDrawingAttributes>
-                <DrawingAttributes Color="Red" FitToCurve="True" IgnorePressure="True" StylusTip="Ellipse">
+                <DrawingAttributes Color="Red" 
+                                   FitToCurve="True" IgnorePressure="False" StylusTip="Ellipse">
                     
                 </DrawingAttributes>
             </InkCanvas.DefaultDrawingAttributes>
@@ -34,14 +35,20 @@
                        HorizontalAlignment="Left" VerticalAlignment="Top">
             </Rectangle>
         </Grid>
+        <WrapPanel x:Name="pnlTools" Grid.Row ="1" Orientation="Horizontal" HorizontalAlignment="Center"
+                   MaxWidth="800" VerticalAlignment="Center">
+            <ToggleButton x:Name="btnPen" Click="btnPen_Click">
+                <TextBlock FontFamily="Wingdings">!</TextBlock>
+            </ToggleButton>
+        </WrapPanel>
+        <WrapPanel x:Name="pnlButtons" Grid.Row ="1" Orientation="Horizontal" HorizontalAlignment="Center"
+                   MaxWidth="800">
+        </WrapPanel>
         <TextBox x:Name="txt" Grid.Row="2" FontSize="24" HorizontalAlignment="Center" 
                  TextChanged="txt_TextChanged" Visibility="Visible" TextWrapping="Wrap">
             <TextBox.Effect>
                 <DropShadowEffect ShadowDepth="5" Color="BurlyWood" Opacity=".4" RenderingBias="Performance" />
             </TextBox.Effect>
         </TextBox>
-        <WrapPanel x:Name="pnlButtons" Grid.Row ="1" Orientation="Horizontal" HorizontalAlignment="Center"
-                   MaxWidth="800">
-        </WrapPanel>
     </Grid>
 </Window>
