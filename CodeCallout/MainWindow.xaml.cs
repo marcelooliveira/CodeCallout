@@ -249,6 +249,8 @@ namespace CodeCallout
         {
             gridTop.Visibility = 
                 (btnPen.IsChecked.HasValue && (bool)btnPen.IsChecked ? Visibility.Hidden : Visibility.Visible);
+
+            inkCanv.Strokes.Clear();
         }
     }
 }
