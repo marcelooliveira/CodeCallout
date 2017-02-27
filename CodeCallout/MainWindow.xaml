@@ -34,7 +34,8 @@
                        HorizontalAlignment="Left" VerticalAlignment="Top">
             </Rectangle>
         </Grid>
-        <TextBox x:Name="txt" Grid.Row="2" FontSize="64" HorizontalAlignment="Center" TextChanged="txt_TextChanged" Visibility="Hidden">
+        <TextBox x:Name="txt" Grid.Row="2" FontSize="24" HorizontalAlignment="Center" 
+                 TextChanged="txt_TextChanged" Visibility="Visible" TextWrapping="Wrap">
             <TextBox.Effect>
                 <DropShadowEffect ShadowDepth="5" Color="BurlyWood" Opacity=".4" RenderingBias="Performance" />
             </TextBox.Effect>

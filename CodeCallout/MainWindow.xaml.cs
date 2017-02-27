@@ -27,6 +27,7 @@ namespace CodeCallout
     public partial class MainWindow : Window
     {
         readonly DispatcherTimer timer;
+        System.Windows.Point downPos;
         //System.Windows.Rect rectScreenshot = new System.Windows.Rect(0, 0, 10, 10);
         public MainWindow()
         {
@@ -68,17 +69,31 @@ namespace CodeCallout
             if (mouseIsDown)
             {
                 var pos = Mouse.GetPosition(this);
-                rectSelection.Width = Math.Max(0, pos.X - rectSelection.Margin.Left);
-                rectSelection.Height = Math.Max(0, pos.Y - rectSelection.Margin.Top);
+
+                rectSelection.Width = Math.Abs(pos.X - downPos.X);
+                if (pos.X - downPos.X >= 0)
+                    rectSelection.Margin = 
+                        new Thickness(rectSelection.Margin.Left, rectSelection.Margin.Top, 0, 0);
+                else
+                    rectSelection.Margin = 
+                        new Thickness(pos.X, rectSelection.Margin.Top, 0, 0);
+
+                rectSelection.Height = Math.Abs(pos.Y - downPos.Y);
+                if (pos.Y - downPos.Y >= 0)
+                    rectSelection.Margin =
+                        new Thickness(rectSelection.Margin.Left, rectSelection.Margin.Top, 0, 0);
+                else
+                    rectSelection.Margin =
+                        new Thickness(rectSelection.Margin.Left, pos.Y, 0, 0);
             }
             //throw new NotImplementedException();
         }
 
         private void GridTop_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            var pos = Mouse.GetPosition(this);
+            downPos = Mouse.GetPosition(this);
             inkCanv.Strokes.Clear();
-            rectSelection.Margin = new Thickness(pos.X, pos.Y, 0, 0);
+            rectSelection.Margin = new Thickness(downPos.X, downPos.Y, 0, 0);
         }
 
         private void InkCanv_MouseMove(object sender, MouseEventArgs e)
