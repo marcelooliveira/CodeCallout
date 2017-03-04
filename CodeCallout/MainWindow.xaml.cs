@@ -11,6 +11,7 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
+//using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -48,19 +49,28 @@ namespace CodeCallout
 
         private void GridTop_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            var rect = new System.Windows.Rect(
-                rectSelection.Margin.Left - rectSelection.StrokeThickness * 2,
-                rectSelection.Margin.Top - rectSelection.StrokeThickness * 2,
-                rectSelection.Width - rectSelection.StrokeThickness * 2 - 1,
-                rectSelection.Height - rectSelection.StrokeThickness * 2 - 1);
+            if (rectSelection.Width == 1 && 
+                rectSelection.Height == 1
+            )
+            {
+                System.Windows.Forms.SendKeys.SendWait("%{TAB}");
+            }
+            else
+            {
+                var rect = new System.Windows.Rect(
+            rectSelection.Margin.Left - rectSelection.StrokeThickness * 2,
+            rectSelection.Margin.Top - rectSelection.StrokeThickness * 2,
+            Math.Max(1, rectSelection.Width - rectSelection.StrokeThickness * 2 - 1),
+            Math.Max(1, rectSelection.Height - rectSelection.StrokeThickness * 2 - 1));
 
-            var bitmap = CaptureScreenshot.Capture(rect);
-            var text = ProcessOCR(bitmap);
-            txt.Text = text;
-            //rectScreenshot = new System.Windows.Rect(0, 0, 10, 10);
-            rectSelection.Margin = new Thickness(0);
-            rectSelection.Width = 10;
-            rectSelection.Height = 10;
+                var bitmap = CaptureScreenshot.Capture(rect);
+                var text = ProcessOCR(bitmap);
+                txt.Text = text;
+                //rectScreenshot = new System.Windows.Rect(0, 0, 10, 10);
+                rectSelection.Margin = new Thickness(0);
+                rectSelection.Width = 1;
+                rectSelection.Height = 1; 
+            }
         }
 
         private void GridTop_MouseMove(object sender, MouseEventArgs e)
