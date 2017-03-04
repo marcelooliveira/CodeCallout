@@ -1,22 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
-using System.Windows.Data;
-using System.Windows.Documents;
-//using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Threading;
 using Tesseract;
 
@@ -29,7 +20,7 @@ namespace CodeCallout
     {
         readonly DispatcherTimer timer;
         System.Windows.Point downPos;
-        //System.Windows.Rect rectScreenshot = new System.Windows.Rect(0, 0, 10, 10);
+        const string PROJECT_FOLDER = "xamarin";
         public MainWindow()
         {
             InitializeComponent();
@@ -187,7 +178,7 @@ namespace CodeCallout
         {
             string exeLocation = new Uri(Assembly.GetExecutingAssembly().CodeBase).AbsolutePath;
             string localFolder = System.IO.Path.GetDirectoryName(exeLocation);
-            string imageFolder = System.IO.Path.Combine(localFolder, "Images");
+            string imageFolder = System.IO.Path.Combine(localFolder, "Images", PROJECT_FOLDER);
             string[] files = Directory.GetFiles(imageFolder);
             foreach (var file in files)
             {
@@ -238,7 +229,7 @@ namespace CodeCallout
             try
             {
                 img.Source = new BitmapImage(
-                    new Uri(string.Format(@"\images\{0}.png", txt.Text.ToLower()), UriKind.Relative));
+                    new Uri(string.Format(@"\images\{0}\{1}.png", PROJECT_FOLDER, txt.Text.ToLower()), UriKind.Relative));
             }
             catch { }
         }

@@ -99,6 +99,50 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <Resource Include="Images\aspnetcore\ajax.png" />
+    <Resource Include="Images\aspnetcore\anti.png" />
+    <Resource Include="Images\aspnetcore\asp.png" />
+    <Resource Include="Images\aspnetcore\boot.png" />
+    <Resource Include="Images\aspnetcore\c.png" />
+    <Resource Include="Images\aspnetcore\car.png" />
+    <Resource Include="Images\aspnetcore\casa.png" />
+    <Resource Include="Images\aspnetcore\code.png" />
+    <Resource Include="Images\aspnetcore\dep.png" />
+    <Resource Include="Images\aspnetcore\dot.png" />
+    <Resource Include="Images\aspnetcore\ef.png" />
+    <Resource Include="Images\aspnetcore\es6.png" />
+    <Resource Include="Images\aspnetcore\fact.png" />
+    <Resource Include="Images\aspnetcore\injection.png" />
+    <Resource Include="Images\aspnetcore\jq.png" />
+    <Resource Include="Images\aspnetcore\livro.png" />
+    <Resource Include="Images\aspnetcore\m.png" />
+    <Resource Include="Images\aspnetcore\modular.png" />
+    <Resource Include="Images\aspnetcore\mv.png" />
+    <Resource Include="Images\aspnetcore\mvc.png" />
+    <Resource Include="Images\aspnetcore\post.png" />
+    <Resource Include="Images\aspnetcore\razor.png" />
+    <Resource Include="Images\aspnetcore\razor2.png" />
+    <Resource Include="Images\aspnetcore\tag.png" />
+    <Resource Include="Images\aspnetcore\v.png" />
+    <Resource Include="Images\aspnetcore\xunit.png" />
+    <Content Include="Images\xamarin\command.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\xamarin\decoupling.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\xamarin\http.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\xamarin\messagingcenter.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\xamarin\mvvm.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\xamarin\viewmodel.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="tessdata\eng.traineddata">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -123,6 +167,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
