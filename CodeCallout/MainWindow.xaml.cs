@@ -48,16 +48,17 @@ namespace CodeCallout
             }
             else
             {
+                var pos = Mouse.GetPosition(this);
+
                 var rect = new System.Windows.Rect(
-            rectSelection.Margin.Left - rectSelection.StrokeThickness * 2,
-            rectSelection.Margin.Top - rectSelection.StrokeThickness * 2,
-            Math.Max(1, rectSelection.Width - rectSelection.StrokeThickness * 2 - 1),
-            Math.Max(1, rectSelection.Height - rectSelection.StrokeThickness * 2 - 1));
+                    pos.X - rectSelection.StrokeThickness * 2,
+                    pos.Y - rectSelection.StrokeThickness * 2,
+                    Math.Max(1, rectSelection.Width - rectSelection.StrokeThickness * 2 - 1),
+                    Math.Max(1, rectSelection.Height - rectSelection.StrokeThickness * 2 - 1));
 
                 var bitmap = CaptureScreenshot.Capture(rect);
                 var text = ProcessOCR(bitmap);
                 txt.Text = text;
-                //rectScreenshot = new System.Windows.Rect(0, 0, 10, 10);
                 rectSelection.Margin = new Thickness(0);
                 rectSelection.Width = 1;
                 rectSelection.Height = 1; 
@@ -69,7 +70,7 @@ namespace CodeCallout
             bool mouseIsDown = System.Windows.Input.Mouse.LeftButton == MouseButtonState.Pressed;
             if (mouseIsDown)
             {
-                var pos = Mouse.GetPosition(this);
+                var pos = Mouse.GetPosition(gridTop);
 
                 rectSelection.Width = Math.Abs(pos.X - downPos.X);
                 if (pos.X - downPos.X >= 0)
@@ -92,9 +93,17 @@ namespace CodeCallout
 
         private void GridTop_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            downPos = Mouse.GetPosition(this);
+            downPos = Mouse.GetPosition(gridTop);
+
             inkCanv.Strokes.Clear();
             rectSelection.Margin = new Thickness(downPos.X, downPos.Y, 0, 0);
+        }
+
+        private System.Windows.Point GetRelativePosition(System.Windows.Shapes.Rectangle control)
+        {
+            UIElement container = VisualTreeHelper.GetParent(control) as UIElement;
+            System.Windows.Point relativeLocation = rectSelection.TranslatePoint(new System.Windows.Point(0, 0), container);
+            return relativeLocation;
         }
 
         private void InkCanv_MouseMove(object sender, MouseEventArgs e)

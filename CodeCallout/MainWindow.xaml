@@ -20,6 +20,32 @@
             <ColumnDefinition Width="128"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Background="#34425A">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="32"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="32"/>
+            </Grid.RowDefinitions>
+                <ToggleButton x:Name="btnPen" Grid.Row="0" Click="btnPen_Click" VerticalAlignment="Center" Width="20">
+                    <TextBlock FontFamily="Wingdings">!</TextBlock>
+                </ToggleButton>
+            <!--<WrapPanel x:Name="pnlTools" Orientation="Horizontal" HorizontalAlignment="Center"
+                       Height="32" MaxWidth="800">
+            </WrapPanel>-->
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" MaxHeight="800" VerticalAlignment="Center">
+                <StackPanel x:Name="pnlButtons" Orientation="Vertical"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center">
+                </StackPanel>
+            </ScrollViewer>
+            <TextBox x:Name="txt" Grid.Row="2" FontSize="12" HorizontalAlignment="Center" 
+                     TextChanged="txt_TextChanged" Visibility="Visible" TextWrapping="Wrap">
+                <TextBox.Effect>
+                    <DropShadowEffect ShadowDepth="5" Color="BurlyWood" Opacity=".4" RenderingBias="Performance" />
+                </TextBox.Effect>
+            </TextBox>
+        </Grid>
+       
         <InkCanvas Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Margin="10,10,10,10" 
                    Width="Auto" Height="Auto" Background="#20808080" x:Name="inkCanv">
             <InkCanvas.DefaultDrawingAttributes>
@@ -29,31 +55,12 @@
                 </DrawingAttributes>
             </InkCanvas.DefaultDrawingAttributes>
         </InkCanvas>
-        <Grid x:Name="gridTop" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Background="Transparent">
+        <Grid x:Name="gridTop" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Background="#10808080">
             <Rectangle x:Name="rectSelection" Stroke="Black" StrokeThickness="2" StrokeDashArray="2,2,2"
                        Fill="#20808080"
                        HorizontalAlignment="Left" VerticalAlignment="Top" Width="1" Height="1">
             </Rectangle>
         </Grid>
-        <WrapPanel x:Name="pnlTools" Grid.Row="0" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center"
-                   MaxWidth="800" VerticalAlignment="Center">
-            <ToggleButton x:Name="btnPen" Click="btnPen_Click">
-                <TextBlock FontFamily="Wingdings">!</TextBlock>
-            </ToggleButton>
-        </WrapPanel>
-        <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto" MaxHeight="800"
-                      Background="#34425A">
-            <StackPanel x:Name="pnlButtons" Orientation="Vertical"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center">
-            </StackPanel>
-        </ScrollViewer>
-        <TextBox x:Name="txt" Grid.Row="1" Grid.Column="0" FontSize="12" HorizontalAlignment="Center" 
-                 TextChanged="txt_TextChanged" Visibility="Visible" TextWrapping="Wrap">
-            <TextBox.Effect>
-                <DropShadowEffect ShadowDepth="5" Color="BurlyWood" Opacity=".4" RenderingBias="Performance" />
-            </TextBox.Effect>
-        </TextBox>
         <Image x:Name="img" Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Stretch="None">
             <Image.Effect>
                 <DropShadowEffect ShadowDepth="20" Color="Teal" Opacity=".3" RenderingBias="Quality" />
