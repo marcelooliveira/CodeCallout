@@ -47,7 +47,7 @@
         </Grid>
        
         <InkCanvas Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Margin="10,10,10,10" 
-                   Width="Auto" Height="Auto" Background="#20808080" x:Name="inkCanv">
+                   Width="Auto" Height="Auto" Background="#02808080" x:Name="inkCanv">
             <InkCanvas.DefaultDrawingAttributes>
                 <DrawingAttributes Color="Red" 
                                    FitToCurve="True" IgnorePressure="False" StylusTip="Ellipse">
@@ -55,8 +55,8 @@
                 </DrawingAttributes>
             </InkCanvas.DefaultDrawingAttributes>
         </InkCanvas>
-        <Grid x:Name="gridTop" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1" Background="#10808080">
-            <Rectangle x:Name="rectSelection" Stroke="Green" StrokeThickness="3" StrokeDashArray="2,2,2"
+        <Grid x:Name="gridTop" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1" Background="#02808080">
+            <Rectangle x:Name="rectSelection" Stroke="Green" StrokeThickness="2" StrokeDashArray="2,2,2"
                        Fill="#20808080"
                        HorizontalAlignment="Left" VerticalAlignment="Top" Width="1" Height="1">
             </Rectangle>

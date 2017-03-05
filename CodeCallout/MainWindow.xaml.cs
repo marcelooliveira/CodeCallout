@@ -149,8 +149,8 @@ namespace CodeCallout
         private static string ProcessOCR(Bitmap bitmap)
         {
             var text = "";
-            var demoFilename = String.Format(@"C:\Users\marce\Desktop\OCR.png");
-            bitmap.Save(demoFilename);
+            var demoFilename = String.Format(@"C:\Users\marce\Desktop\OCR.bmp");
+            bitmap.Save(demoFilename, System.Drawing.Imaging.ImageFormat.Bmp);
             //SaveBitmapSourceToFile(bitmap, demoFilename);
             using (var engine = new TesseractEngine(@"./tessdata", "eng", EngineMode.Default))
             {
