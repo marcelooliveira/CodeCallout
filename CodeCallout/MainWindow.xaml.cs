@@ -40,7 +40,7 @@ namespace CodeCallout
 
         private void GridTop_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (rectSelection.Width == 1 && 
+            if (rectSelection.Width == 1 &&
                 rectSelection.Height == 1
             )
             {
@@ -48,11 +48,11 @@ namespace CodeCallout
             }
             else
             {
-                var pos = Mouse.GetPosition(this);
+                //var relativePos = GetRelativePosition(rectSelection);
 
                 var rect = new System.Windows.Rect(
-                    pos.X - rectSelection.StrokeThickness * 2,
-                    pos.Y - rectSelection.StrokeThickness * 2,
+                    128 + rectSelection.Margin.Left - rectSelection.StrokeThickness * 2,
+                    rectSelection.Margin.Top - rectSelection.StrokeThickness * 2,
                     Math.Max(1, rectSelection.Width - rectSelection.StrokeThickness * 2 - 1),
                     Math.Max(1, rectSelection.Height - rectSelection.StrokeThickness * 2 - 1));
 
@@ -61,7 +61,7 @@ namespace CodeCallout
                 txt.Text = text;
                 rectSelection.Margin = new Thickness(0);
                 rectSelection.Width = 1;
-                rectSelection.Height = 1; 
+                rectSelection.Height = 1;
             }
         }
 
@@ -74,10 +74,10 @@ namespace CodeCallout
 
                 rectSelection.Width = Math.Abs(pos.X - downPos.X);
                 if (pos.X - downPos.X >= 0)
-                    rectSelection.Margin = 
+                    rectSelection.Margin =
                         new Thickness(rectSelection.Margin.Left, rectSelection.Margin.Top, 0, 0);
                 else
-                    rectSelection.Margin = 
+                    rectSelection.Margin =
                         new Thickness(pos.X, rectSelection.Margin.Top, 0, 0);
 
                 rectSelection.Height = Math.Abs(pos.Y - downPos.Y);
@@ -101,7 +101,7 @@ namespace CodeCallout
 
         private System.Windows.Point GetRelativePosition(System.Windows.Shapes.Rectangle control)
         {
-            UIElement container = VisualTreeHelper.GetParent(control) as UIElement;
+            var container = VisualTreeHelper.GetParent(control) as UIElement;
             System.Windows.Point relativeLocation = rectSelection.TranslatePoint(new System.Windows.Point(0, 0), container);
             return relativeLocation;
         }
@@ -257,7 +257,7 @@ namespace CodeCallout
 
         private void btnPen_Click(object sender, RoutedEventArgs e)
         {
-            gridTop.Visibility = 
+            gridTop.Visibility =
                 (btnPen.IsChecked.HasValue && (bool)btnPen.IsChecked ? Visibility.Hidden : Visibility.Visible);
 
             inkCanv.Strokes.Clear();

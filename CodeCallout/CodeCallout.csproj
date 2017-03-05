@@ -99,6 +99,9 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <Content Include="tessdata\por.traineddata">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Images\aspnetcore\ajax.png" />
     <Resource Include="Images\aspnetcore\anti.png" />
     <Resource Include="Images\aspnetcore\asp.png" />
