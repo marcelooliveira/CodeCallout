@@ -68,12 +68,12 @@ namespace CodeCallout
                 if (isValidFileName)
                 {
                     var imgFile = Path.Combine(imageFolder, fileName);
-                    patCallout.Visibility = Visibility.Visible;
-                    patCallout.Margin =
+                    grdCallout.Visibility = Visibility.Visible;
+                    grdCallout.Margin =
                         new Thickness(rectSelection.Margin.Left + rectSelection.Width,
                         rectSelection.Margin.Top + rectSelection.Height / 2 - 50, 
                         0, 0);
-                    patCallout.Fill = new ImageBrush(new BitmapImage(new Uri(imgFile)));
+                    imgCallout.Source = new BitmapImage(new Uri(imgFile));
                 }
             }
         }
@@ -112,7 +112,7 @@ namespace CodeCallout
             rectSelection.Margin = new Thickness(downPos.X, downPos.Y, 0, 0);
             rectSelection.Width =
             rectSelection.Height = 1;
-            patCallout.Visibility = Visibility.Hidden;
+            grdCallout.Visibility = Visibility.Hidden;
         }
 
         private System.Windows.Point GetRelativePosition(System.Windows.Shapes.Rectangle control)
