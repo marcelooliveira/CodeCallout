@@ -57,16 +57,24 @@ namespace CodeCallout
                     Math.Max(1, rectSelection.Height - rectSelection.StrokeThickness * 2 - 1));
 
                 var bitmap = CaptureScreenshot.Capture(rect);
-                var text = ProcessOCR(bitmap);
-                txt.Text = text.ToLower();
-                //rectSelection.Margin = new Thickness(0);
-                //rectSelection.Width = 1;
-                //rectSelection.Height = 1;
-                patCallout.Visibility = Visibility.Visible;
-                patCallout.Margin =
-                    new Thickness(rectSelection.Margin.Left + rectSelection.Width,
-                    rectSelection.Margin.Top + rectSelection.Height / 2 - 50, 
-                    0, 0);
+                var text = ProcessOCR(bitmap).ToLower().Trim().Replace(" ", "");
+                string imageFolder = GetImageFolder();
+                string fileName = string.Format("{0}.png", text);
+                var isValidFileName = 
+                    !string.IsNullOrEmpty(fileName) &&
+                    fileName.IndexOfAny(Path.GetInvalidFileNameChars()) < 0 &&
+                    File.Exists(Path.Combine(imageFolder, fileName));
+
+                if (isValidFileName)
+                {
+                    var imgFile = Path.Combine(imageFolder, fileName);
+                    patCallout.Visibility = Visibility.Visible;
+                    patCallout.Margin =
+                        new Thickness(rectSelection.Margin.Left + rectSelection.Width,
+                        rectSelection.Margin.Top + rectSelection.Height / 2 - 50, 
+                        0, 0);
+                    patCallout.Fill = new ImageBrush(new BitmapImage(new Uri(imgFile)));
+                }
             }
         }
 
@@ -193,9 +201,7 @@ namespace CodeCallout
 
         private void SetupToggleButtons()
         {
-            string exeLocation = new Uri(Assembly.GetExecutingAssembly().CodeBase).AbsolutePath;
-            string localFolder = System.IO.Path.GetDirectoryName(exeLocation);
-            string imageFolder = System.IO.Path.Combine(localFolder, "Images", PROJECT_FOLDER);
+            string imageFolder = GetImageFolder();
             string[] files = Directory.GetFiles(imageFolder);
             foreach (var file in files)
             {
@@ -209,6 +215,14 @@ namespace CodeCallout
                 toggleButton.Click += ToggleButton_Click;
                 pnlButtons.Children.Add(toggleButton);
             }
+        }
+
+        private static string GetImageFolder()
+        {
+            string exeLocation = new Uri(Assembly.GetExecutingAssembly().CodeBase).AbsolutePath;
+            string localFolder = System.IO.Path.GetDirectoryName(exeLocation);
+            string imageFolder = System.IO.Path.Combine(localFolder, "Images", PROJECT_FOLDER);
+            return imageFolder;
         }
 
         private void ToggleButton_Click(object sender, RoutedEventArgs e)
