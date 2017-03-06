@@ -63,7 +63,9 @@
             <Grid x:Name="grdCallout" Visibility="Hidden"
                   Width="96" Height="96"
                   HorizontalAlignment="Left"
-                  VerticalAlignment="Top">
+                  VerticalAlignment="Top"
+                  MouseDown="grdCallout_MouseDown"
+                  MouseUp="grdCallout_MouseUp">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="64"/>

@@ -113,6 +113,7 @@ namespace CodeCallout
             rectSelection.Width =
             rectSelection.Height = 1;
             grdCallout.Visibility = Visibility.Hidden;
+            grdCallout.LayoutTransform = new ScaleTransform(1, 1);
         }
 
         private System.Windows.Point GetRelativePosition(System.Windows.Shapes.Rectangle control)
@@ -283,6 +284,27 @@ namespace CodeCallout
                 (btnPen.IsChecked.HasValue && (bool)btnPen.IsChecked ? Visibility.Hidden : Visibility.Visible);
 
             inkCanv.Strokes.Clear();
+        }
+
+        private void grdCallout_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            bool zoomed = (grdCallout.Tag as bool?) ?? false;
+            if (!zoomed)
+            {
+                grdCallout.LayoutTransform = new ScaleTransform(5, 5);
+            }
+            else
+            {
+                grdCallout.LayoutTransform = new ScaleTransform(1, 1);
+            }
+
+            grdCallout.Tag = !zoomed;
+            e.Handled = true;
+        }
+
+        private void grdCallout_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }
