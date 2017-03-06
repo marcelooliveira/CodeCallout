@@ -60,6 +60,36 @@
                        Fill="#20808080"
                        HorizontalAlignment="Left" VerticalAlignment="Top" Width="1" Height="1">
             </Rectangle>
+            <Path x:Name="patCallout" Stroke="Black" StrokeThickness="4" 
+                  Fill="#FFFFFF"
+                  Visibility="Hidden">
+                <Path.LayoutTransform>
+                    <ScaleTransform ScaleX=".5" ScaleY=".5"></ScaleTransform>
+                </Path.LayoutTransform>
+                <Path.Data>
+                    <CombinedGeometry GeometryCombineMode="Union">
+                        <CombinedGeometry.Geometry1>
+                            <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,300,200">
+                                <RectangleGeometry.Transform>
+                                    <TranslateTransform X="30" />
+                                </RectangleGeometry.Transform>
+                            </RectangleGeometry>
+                        </CombinedGeometry.Geometry1>
+                        <CombinedGeometry.Geometry2>
+                            <PathGeometry>
+                                <PathFigure StartPoint="0,100">
+                                    <LineSegment Point="50,80" />
+                                    <LineSegment Point="50,120" />
+                                </PathFigure>
+                            </PathGeometry>
+                        </CombinedGeometry.Geometry2>
+                    </CombinedGeometry>
+                </Path.Data>
+                <Path.Effect>
+                    <DropShadowEffect Color="Black" Opacity="0.4" Direction="-135"
+            ShadowDepth="10" />
+                </Path.Effect>
+            </Path>
         </Grid>
         <Image x:Name="img" Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Stretch="None">
             <Image.Effect>

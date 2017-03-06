@@ -58,10 +58,15 @@ namespace CodeCallout
 
                 var bitmap = CaptureScreenshot.Capture(rect);
                 var text = ProcessOCR(bitmap);
-                txt.Text = text;
-                rectSelection.Margin = new Thickness(0);
-                rectSelection.Width = 1;
-                rectSelection.Height = 1;
+                txt.Text = text.ToLower();
+                //rectSelection.Margin = new Thickness(0);
+                //rectSelection.Width = 1;
+                //rectSelection.Height = 1;
+                patCallout.Visibility = Visibility.Visible;
+                patCallout.Margin =
+                    new Thickness(rectSelection.Margin.Left + rectSelection.Width,
+                    rectSelection.Margin.Top + rectSelection.Height / 2 - 50, 
+                    0, 0);
             }
         }
 
@@ -97,6 +102,9 @@ namespace CodeCallout
 
             inkCanv.Strokes.Clear();
             rectSelection.Margin = new Thickness(downPos.X, downPos.Y, 0, 0);
+            rectSelection.Width =
+            rectSelection.Height = 1;
+            patCallout.Visibility = Visibility.Hidden;
         }
 
         private System.Windows.Point GetRelativePosition(System.Windows.Shapes.Rectangle control)
