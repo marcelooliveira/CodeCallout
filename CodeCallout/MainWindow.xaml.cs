@@ -20,7 +20,7 @@ namespace CodeCallout
     {
         readonly DispatcherTimer timer;
         System.Windows.Point downPos;
-        const string PROJECT_FOLDER = "xamarin";
+        const string PROJECT_FOLDER = "aspnetcore";
         public MainWindow()
         {
             InitializeComponent();

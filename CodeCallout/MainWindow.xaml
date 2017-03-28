@@ -115,10 +115,13 @@
                    Grid.Column="1" Grid.Row="1"></Image>
             </Grid>
         </Grid>
-        <Image x:Name="img" Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Stretch="None">
-            <Image.Effect>
+        <Border BorderThickness="2" BorderBrush="Black"
+                Grid.Row="0" Grid.RowSpan="2" Grid.Column="1">
+            <Image x:Name="img" Stretch="None">
+            </Image>
+            <Border.Effect>
                 <DropShadowEffect ShadowDepth="20" Color="Teal" Opacity=".3" RenderingBias="Quality" />
-            </Image.Effect>
-        </Image>
+            </Border.Effect>
+        </Border>
     </Grid>
 </Window>
