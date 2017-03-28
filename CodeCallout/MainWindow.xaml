@@ -32,7 +32,9 @@
             <!--<WrapPanel x:Name="pnlTools" Orientation="Horizontal" HorizontalAlignment="Center"
                        Height="32" MaxWidth="800">
             </WrapPanel>-->
-            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" MaxHeight="800" VerticalAlignment="Center">
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" 
+                          MaxHeight="800" VerticalAlignment="Center"
+                          MouseUp="ScrollViewer_MouseUp">
                 <StackPanel x:Name="pnlButtons" Orientation="Vertical"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center">
@@ -115,7 +117,8 @@
                    Grid.Column="1" Grid.Row="1"></Image>
             </Grid>
         </Grid>
-        <Border BorderThickness="2" BorderBrush="Black"
+        <Border x:Name="brdImage"
+            BorderThickness="2" BorderBrush="Black"
                 Grid.Row="0" Grid.RowSpan="2" Grid.Column="1">
             <Image x:Name="img" Stretch="None">
             </Image>

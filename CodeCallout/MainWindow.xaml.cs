@@ -44,7 +44,12 @@ namespace CodeCallout
                 rectSelection.Height == 1
             )
             {
-                System.Windows.Forms.SendKeys.SendWait("%{TAB}");
+                //System.Windows.Forms.SendKeys.SendWait("%{TAB}");
+                //this.WindowState = WindowState.Minimized;
+
+                this.brdImage.Visibility =
+                this.inkCanv.Visibility =
+                this.gridTop.Visibility = Visibility.Hidden;
             }
             else
             {
@@ -60,7 +65,7 @@ namespace CodeCallout
                 var text = ProcessOCR(bitmap).ToLower().Trim().Replace(" ", "");
                 string imageFolder = GetImageFolder();
                 string fileName = string.Format("{0}.png", text);
-                var isValidFileName = 
+                var isValidFileName =
                     !string.IsNullOrEmpty(fileName) &&
                     fileName.IndexOfAny(Path.GetInvalidFileNameChars()) < 0 &&
                     File.Exists(Path.Combine(imageFolder, fileName));
@@ -71,7 +76,7 @@ namespace CodeCallout
                     grdCallout.Visibility = Visibility.Visible;
                     grdCallout.Margin =
                         new Thickness(rectSelection.Margin.Left + rectSelection.Width,
-                        rectSelection.Margin.Top + rectSelection.Height / 2 - 50, 
+                        rectSelection.Margin.Top + rectSelection.Height / 2 - 50,
                         0, 0);
                     imgCallout.Source = new BitmapImage(new Uri(imgFile));
                 }
@@ -166,18 +171,26 @@ namespace CodeCallout
         private static string ProcessOCR(Bitmap bitmap)
         {
             var text = "";
-            var demoFilename = String.Format(@"C:\Users\marce\Desktop\OCR.bmp");
-            bitmap.Save(demoFilename, System.Drawing.Imaging.ImageFormat.Bmp);
-            //SaveBitmapSourceToFile(bitmap, demoFilename);
-            using (var engine = new TesseractEngine(@"./tessdata", "eng", EngineMode.Default))
+            try
             {
-                using (var pix = Pix.LoadFromFile(demoFilename))
+
+                var demoFilename = String.Format(@"C:\Users\marce\Desktop\OCR.bmp");
+                bitmap.Save(demoFilename, System.Drawing.Imaging.ImageFormat.Bmp);
+                //SaveBitmapSourceToFile(bitmap, demoFilename);
+                using (var engine = new TesseractEngine(@"./tessdata", "eng", EngineMode.Default))
                 {
-                    using (var page = engine.Process(pix))
+                    using (var pix = Pix.LoadFromFile(demoFilename))
                     {
-                        text = page.GetText().Trim();
+                        using (var page = engine.Process(pix))
+                        {
+                            text = page.GetText().Trim();
+                        }
                     }
                 }
+            }
+            catch (Exception)
+            {
+                //throw;
             }
             return text;
         }
@@ -247,6 +260,8 @@ namespace CodeCallout
 
                 txt.Text = toggleButton.Content.ToString();
             }
+            ShowRightPanel();
+
         }
 
         private void SetupTimer()
@@ -305,6 +320,23 @@ namespace CodeCallout
         private void grdCallout_MouseUp(object sender, MouseButtonEventArgs e)
         {
             e.Handled = true;
+        }
+
+        private void txt_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void ScrollViewer_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            ShowRightPanel();
+        }
+
+        private void ShowRightPanel()
+        {
+            this.brdImage.Visibility =
+            this.inkCanv.Visibility =
+            this.gridTop.Visibility = Visibility.Visible;
         }
     }
 }
