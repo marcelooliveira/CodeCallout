@@ -129,7 +129,7 @@
     <Content Include="Images\aspnetcore\085 pacotes.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\aspnetcore\09 nuget.png">
+    <Content Include="Images\aspnetcore\30 nuget.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\aspnetcore\10 kestrel.png">
@@ -171,16 +171,16 @@
     <Content Include="Images\aspnetcore\20 model.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\aspnetcore\21 html.png">
+    <Content Include="Images\aspnetcore\31 html.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\aspnetcore\22 layout.png">
+    <Content Include="Images\aspnetcore\32 layout.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\aspnetcore\23 razor.png">
+    <Content Include="Images\aspnetcore\33 razor.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\aspnetcore\24 razor2.png">
+    <Content Include="Images\aspnetcore\34 razor2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\aspnetcore\25 controller_action.png">
