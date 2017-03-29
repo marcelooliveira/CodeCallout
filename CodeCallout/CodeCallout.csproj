@@ -99,6 +99,93 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <Content Include="Images\aspnetcore\01 asp net mvc.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\aspnetcore\02 casa.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\aspnetcore\03 livros.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\aspnetcore\04 e-commerce.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\aspnetcore\05 carrossel.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\aspnetcore\06 carrinho.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\aspnetcore\07 resumo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\aspnetcore\075 multiplataforma.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\aspnetcore\08 commandline.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\aspnetcore\085 pacotes.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\aspnetcore\09 nuget.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\aspnetcore\10 kestrel.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\aspnetcore\11 veterano.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\aspnetcore\12 novato.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\aspnetcore\13 opensource.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\aspnetcore\14 IOT.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\aspnetcore\15 5 pagina.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\aspnetcore\15 6 mv.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\aspnetcore\15 7 mvc.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\aspnetcore\15 arduino.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\aspnetcore\16 mario.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\aspnetcore\17 controller.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\aspnetcore\18 requisicao.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\aspnetcore\19 view.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\aspnetcore\20 model.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\aspnetcore\21 html.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\aspnetcore\22 layout.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\aspnetcore\23 razor.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\aspnetcore\24 razor2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\xamarin\async.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -120,32 +207,6 @@
     <Content Include="tessdata\por.traineddata">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Images\aspnetcore\ajax.png" />
-    <Resource Include="Images\aspnetcore\anti.png" />
-    <Resource Include="Images\aspnetcore\asp.png" />
-    <Resource Include="Images\aspnetcore\boot.png" />
-    <Resource Include="Images\aspnetcore\c.png" />
-    <Resource Include="Images\aspnetcore\car.png" />
-    <Resource Include="Images\aspnetcore\casa.png" />
-    <Resource Include="Images\aspnetcore\code.png" />
-    <Resource Include="Images\aspnetcore\dep.png" />
-    <Resource Include="Images\aspnetcore\dot.png" />
-    <Resource Include="Images\aspnetcore\ef.png" />
-    <Resource Include="Images\aspnetcore\es6.png" />
-    <Resource Include="Images\aspnetcore\fact.png" />
-    <Resource Include="Images\aspnetcore\injection.png" />
-    <Resource Include="Images\aspnetcore\jq.png" />
-    <Resource Include="Images\aspnetcore\livro.png" />
-    <Resource Include="Images\aspnetcore\m.png" />
-    <Resource Include="Images\aspnetcore\modular.png" />
-    <Resource Include="Images\aspnetcore\mv.png" />
-    <Resource Include="Images\aspnetcore\mvc.png" />
-    <Resource Include="Images\aspnetcore\post.png" />
-    <Resource Include="Images\aspnetcore\razor.png" />
-    <Resource Include="Images\aspnetcore\razor2.png" />
-    <Resource Include="Images\aspnetcore\tag.png" />
-    <Resource Include="Images\aspnetcore\v.png" />
-    <Resource Include="Images\aspnetcore\xunit.png" />
     <Content Include="Images\xamarin\command.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
