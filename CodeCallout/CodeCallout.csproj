@@ -210,16 +210,22 @@
     <Content Include="Images\aspnetcore\2.18 casa-carrossel.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\aspnetcore\2.2 logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\aspnetcore\2.31 html.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\aspnetcore\2.32 layout.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\aspnetcore\2.34 razor2.png">
+    <Content Include="Images\aspnetcore\2.4 Grid 12.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\aspnetcore\21.33 razor.png">
+    <Content Include="Images\aspnetcore\2.5 razor.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\aspnetcore\2.51 razor2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\xamarin\async.png">
