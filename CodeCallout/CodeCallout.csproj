@@ -222,6 +222,10 @@
     <Content Include="Images\aspnetcore\2.4 Grid 12.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Images\aspnetcore\2.4 Grid.png" />
+    <Resource Include="Images\aspnetcore\2.41 Doze.png" />
+    <Resource Include="Images\aspnetcore\2.42 Grid 12.png" />
+    <Resource Include="Images\aspnetcore\2.43 col- devices.png" />
     <Content Include="Images\aspnetcore\2.5 razor.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
