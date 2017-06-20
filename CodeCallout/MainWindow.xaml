@@ -10,17 +10,18 @@
         Title="MainWindow" Height="350" Width="525"
         Background="Transparent"
         WindowState="Maximized">
-    <Grid>
+    <Grid Name="grdMainGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="32"></RowDefinition>
             <RowDefinition Height="64"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="128"></ColumnDefinition>
+            <ColumnDefinition Width="12.8"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Background="#34425A">
+        <Grid Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Background="DarkRed"
+              Name="grdMenu" MouseEnter="grdMenu_MouseEnter" MouseLeave="grdMenu_MouseLeave">
             <Grid.RowDefinitions>
                 <RowDefinition Height="32"/>
                 <RowDefinition Height="*"/>

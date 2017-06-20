@@ -20,7 +20,7 @@ namespace CodeCallout
     {
         readonly DispatcherTimer timer;
         System.Windows.Point downPos;
-        const string PROJECT_FOLDER = "aspnetcore";
+        const string PROJECT_FOLDER = "csharpbrasil";
         public MainWindow()
         {
             InitializeComponent();
@@ -337,6 +337,16 @@ namespace CodeCallout
             this.brdImage.Visibility =
             this.inkCanv.Visibility =
             this.gridTop.Visibility = Visibility.Visible;
+        }
+
+        private void grdMenu_MouseEnter(object sender, MouseEventArgs e)
+        {
+            grdMainGrid.ColumnDefinitions[0].Width = new GridLength(128);
+        }
+
+        private void grdMenu_MouseLeave(object sender, MouseEventArgs e)
+        {
+            grdMainGrid.ColumnDefinitions[0].Width = new GridLength(12);
         }
     }
 }
