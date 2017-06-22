@@ -423,7 +423,7 @@
     <Content Include="Images\csharpbrasil\1.07 formula cpf2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\csharpbrasil\1.071 formula cpf21.png">
+    <Content Include="Images\csharpbrasil\1.065 formula cpf1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\csharpbrasil\1.08 formula cpf3.png">
