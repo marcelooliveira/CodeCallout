@@ -341,12 +341,12 @@ namespace CodeCallout
 
         private void grdMenu_MouseEnter(object sender, MouseEventArgs e)
         {
-            grdMainGrid.ColumnDefinitions[0].Width = new GridLength(128);
+            //grdMainGrid.ColumnDefinitions[0].Width = new GridLength(128);
         }
 
         private void grdMenu_MouseLeave(object sender, MouseEventArgs e)
         {
-            grdMainGrid.ColumnDefinitions[0].Width = new GridLength(12);
+            //grdMainGrid.ColumnDefinitions[0].Width = new GridLength(12);
         }
     }
 }

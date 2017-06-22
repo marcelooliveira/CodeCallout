@@ -17,10 +17,10 @@
             <RowDefinition Height="64"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="12.8"></ColumnDefinition>
+            <ColumnDefinition Width="128"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Background="DarkRed"
+        <Grid Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Background="CornflowerBlue"
               Name="grdMenu" MouseEnter="grdMenu_MouseEnter" MouseLeave="grdMenu_MouseLeave">
             <Grid.RowDefinitions>
                 <RowDefinition Height="32"/>
